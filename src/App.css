@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  position: relative;
 }
 
 
@@ -86,16 +87,41 @@
   
 }
 
+.google_content a {
+  text-decoration: none;
+  transition: all 0.6ms;
+}
+
+.google_content a:hover {
+  text-decoration: underline;
+}
+
 .google_footer {
+  box-sizing: border-box;
   display: flex;
   justify-content: space-between;
   padding: 20px;
   background-color: #ddd;
   position: absolute;
   width: 100%;
-  bottom: 0;
+  height: 100px;
+  bottom: 0px;
 }
+
 .google_footer a {
   margin-left: 10px;
   text-decoration: none;
+}
+
+.google_button {
+  padding-top: 20px;
+}
+
+.google_button button {
+  padding: 10px;
+}
+
+.google_button button:first-child {
+  margin-right: 20px;
+  margin-bottom: 20px;
 }
