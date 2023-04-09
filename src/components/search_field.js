@@ -10,11 +10,16 @@ import logo from '../images/googlelogo.png'
 
 const SearchComponent = () => {
   const [query, setQuery] = useState('')
+  const [displayQuery, setDisplayQuery] = useState('')
 
-  function submit() {
-    const searchQuery = document.getElementById('searchQuery')
-    searchQuery.innerHTML = query 
-    setQuery('') 
+  function handleSubmit(e) {
+      setDisplayQuery(query);
+  }
+
+  function handleEnterKey(e) {
+    if(e.key === 'Enter' ) {
+      setDisplayQuery(query);
+    }
   }
 
   return (
@@ -23,13 +28,13 @@ const SearchComponent = () => {
 
         <div className='google_search'>
             <AiOutlineSearch />
-            <input type='text' value={query} onChange={(e) => setQuery(e.target.value)}/>
+            <input type='text' value={query}  onChange={(event) => setQuery(event.target.value)} onKeyDown={(event) => handleEnterKey(event)} />
             <BsMic />
             <BsFillCameraFill />
         </div>
-        <div id='searchQuery'></div>
+        <div id='searchQuery'>{displayQuery}</div>
         <div className='google_button'>
-            <button onClick={(e) => submit()}>Google Search</button>          
+            <button onClick={(event) => handleSubmit(event)}>Google Search</button>          
             <button>Im Feeling Lucky</button>
         </div>
         <div>
